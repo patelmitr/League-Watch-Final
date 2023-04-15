@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify, make_response, current_app
 import json
-from flask-app import db
+from src import db
 
 
 players = Blueprint('players', __name__)
@@ -9,7 +9,7 @@ players = Blueprint('players', __name__)
 @players.route('/players', methods=['GET'])
 def get_players():
     cursor = db.get_db().cursor()
-    cursor.execute('select first_name, last_name, salary, team_id, player_id, player_number, position, points, assists, steals, blocks, rebounds, turnovers, games_played from players')
+    cursor.execute('select first_name, last_name, salary, team_id, player_id, player_number, position, points, assists, steals, blocks, rebounds, turnovers, games_played from Player')
     row_headers = [x[0] for x in cursor.description]
     json_data = []
     theData = cursor.fetchall()
@@ -25,7 +25,7 @@ def get_players():
 @players.route('/players/<playerID>', methods=['GET'])
 def get_specificPlayer(playerID):
     cursor = db.get_db().cursor()
-    cursor.execute('select * from players where player_id = {0}'.format(playerID))
+    cursor.execute('select * from Player where player_id = {0}'.format(playerID))
     row_headers = [x[0] for x in cursor.description]
     json_data = []
     theData = cursor.fetchall()
@@ -37,10 +37,10 @@ def get_specificPlayer(playerID):
     return the_response
 
 # Get player detail for players with particular number of points
-@players.route('/players/<points>', methods=['GET'])
+@players.route('/players/points=<points>', methods=['GET'])
 def get_points(points):
     cursor = db.get_db().cursor()
-    cursor.execute('select * from players where points = {0}'.format(points))
+    cursor.execute('select * from Player where points = {0}'.format(points))
     row_headers = [x[0] for x in cursor.description]
     json_data = []
     theData = cursor.fetchall()
@@ -52,10 +52,10 @@ def get_points(points):
     return the_response
 
 # Get player detail for players with particular number of assists
-@players.route('/players/<assists>', methods=['GET'])
+@players.route('/players/assists=<assists>', methods=['GET'])
 def get_assists(assists):
     cursor = db.get_db().cursor()
-    cursor.execute('select * from players where assists = {0}'.format(assists))
+    cursor.execute('select * from Player where assists = {0}'.format(assists))
     row_headers = [x[0] for x in cursor.description]
     json_data = []
     theData = cursor.fetchall()
@@ -67,10 +67,10 @@ def get_assists(assists):
     return the_response
 
 # Get player detail for players with particular number of steals
-@players.route('/players/<steals>', methods=['GET'])
+@players.route('/players/steals=<steals>', methods=['GET'])
 def get_steals(steals):
     cursor = db.get_db().cursor()
-    cursor.execute('select * from players where steals = {0}'.format(steals))
+    cursor.execute('select * from Player where steals = {0}'.format(steals))
     row_headers = [x[0] for x in cursor.description]
     json_data = []
     theData = cursor.fetchall()
@@ -82,10 +82,10 @@ def get_steals(steals):
     return the_response
 
 # Get player detail for players with particular number of blocks
-@players.route('/players/<blocks>', methods=['GET'])
+@players.route('/players/blocks=<blocks>', methods=['GET'])
 def get_blocks(blocks):
     cursor = db.get_db().cursor()
-    cursor.execute('select * from players where blocks = {0}'.format(blocks))
+    cursor.execute('select * from Player where blocks = {0}'.format(blocks))
     row_headers = [x[0] for x in cursor.description]
     json_data = []
     theData = cursor.fetchall()
@@ -97,10 +97,10 @@ def get_blocks(blocks):
     return the_response
 
 # Get player detail for players with particular number of rebounds
-@players.route('/players/<rebounds>', methods=['GET'])
+@players.route('/players/rebounds=<rebounds>', methods=['GET'])
 def get_rebounds(rebounds):
     cursor = db.get_db().cursor()
-    cursor.execute('select * from players where rebounds = {0}'.format(rebounds))
+    cursor.execute('select * from Player where rebounds = {0}'.format(rebounds))
     row_headers = [x[0] for x in cursor.description]
     json_data = []
     theData = cursor.fetchall()
@@ -135,7 +135,7 @@ def add_new_product ():
     games_played = req_data['games_played']
 
     # construct the insert statement
-    insert_stmt = 'INSERT INTO players (first_name, last_name, salary, team_id, player_id, player_number, position, points, assists, steals, blocks, rebounds, turnovers, games_played) VALUES ("'
+    insert_stmt = 'INSERT INTO Player (first_name, last_name, salary, team_id, player_id, player_number, position, points, assists, steals, blocks, rebounds, turnovers, games_played) VALUES ("'
     insert_stmt += first_name + '", "'
     insert_stmt += last_name + '", "'
     insert_stmt += str(salary) + '", "'
@@ -183,7 +183,7 @@ def put_player(playerID):
     games_played = req_data['games_played']
 
     # construct the update statement
-    update_stmt = 'update players set first_name = \''
+    update_stmt = 'update Player set first_name = \''
     update_stmt += first_name + '\', '
     update_stmt += 'last_name = \''
     update_stmt += last_name + '\', '
@@ -234,7 +234,7 @@ def delete_player(playerID):
     current_app.logger.info(req_data)
 
     # construct the delete statement
-    delete_stmt = 'delete from players where player_id = \''
+    delete_stmt = 'delete from Player where player_id = \''
     delete_stmt += playerID + '\';'
 
 
