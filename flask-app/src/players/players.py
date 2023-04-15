@@ -119,7 +119,7 @@ def add_new_product ():
     req_data = request.get_json()
     current_app.logger.info(req_data)
 
-    first_name = req_data ['first _name']
+    first_name = req_data ['first_name']
     last_name = req_data['last_name']
     salary = req_data['salary']
     team_id = req_data ['team_id']
@@ -135,7 +135,7 @@ def add_new_product ():
     games_played = req_data['games_played']
 
     # construct the insert statement
-    insert_stmt = 'INSERT INTO Player (first_name, last_name, salary, team_id, player_id, player_number, position, points, assists, steals, blocks, rebounds, turnovers, games_played) VALUES ("'
+    insert_stmt = 'INSERT INTO Player(first_name, last_name, salary, team_id, player_id, player_number, position, points, assists, steals, blocks, rebounds, turnovers, games_played) VALUES ("'
     insert_stmt += first_name + '", "'
     insert_stmt += last_name + '", "'
     insert_stmt += str(salary) + '", "'
@@ -149,26 +149,26 @@ def add_new_product ():
     insert_stmt += str(blocks) + '", "'
     insert_stmt += str(rebounds) + '", "'
     insert_stmt += str(turnovers) + '", "'
-    insert_stmt += str(games_played) + ')'
+    insert_stmt += str(games_played) + '")'
 
     current_app.logger.info(insert_stmt)
 
     # execute the query
-    cursor = db.get_db().curser()
+    cursor = db.get_db().cursor()
     cursor.execute(insert_stmt)
     db.get_db().commit()
     return 'Success!'
 
 #TODO
 # Put a player in the DB
-@players.route('/players', methods=['PUT'])
+@players.route('/players/put=<playerID>', methods=['PUT'])
 def put_player(playerID):
     # access json data from, request object.
     current_app.logger.info('Processing form data')
     req_data = request.get_json()
     current_app.logger.info(req_data)
 
-    first_name = req_data ['first _name']
+    first_name = req_data ['first_name']
     last_name = req_data['last_name']
     salary = req_data['salary']
     team_id = req_data ['team_id']
@@ -187,29 +187,29 @@ def put_player(playerID):
     update_stmt += first_name + '\', '
     update_stmt += 'last_name = \''
     update_stmt += last_name + '\', '
-    update_stmt += 'salary = \''
-    update_stmt += salary + '\', '
-    update_stmt += 'team_id = \''
-    update_stmt += team_id + '\', '
-    update_stmt += 'player_number = \''
-    update_stmt += player_number + '\', '
+    update_stmt += 'salary = '
+    update_stmt += str(salary) + ', '
+    update_stmt += 'team_id = '
+    update_stmt += str(team_id) + ', '
+    update_stmt += 'player_number = '
+    update_stmt += str(player_number) + ', '
     update_stmt += 'position = \''
     update_stmt += position + '\', '
-    update_stmt += 'points = \''
-    update_stmt += points + '\', '
-    update_stmt += 'assists = \''
-    update_stmt += assists + '\', '
-    update_stmt += 'steals = \''
-    update_stmt += steals + '\', '
-    update_stmt += 'blocks = \''
-    update_stmt += blocks + '\', '
-    update_stmt += 'rebounds = \''
-    update_stmt += rebounds + '\', '
-    update_stmt += 'turnovers = \''
-    update_stmt += turnovers + '\', '
-    update_stmt += 'games_played = \''
-    update_stmt += games_played + '\' '
-    update_stmt += 'where player_id = ' + playerID
+    update_stmt += 'points = '
+    update_stmt += str(points) + ', '
+    update_stmt += 'assists = '
+    update_stmt += str(assists) + ', '
+    update_stmt += 'steals = '
+    update_stmt += str(steals) + ', '
+    update_stmt += 'blocks = '
+    update_stmt += str(blocks) + ', '
+    update_stmt += 'rebounds = '
+    update_stmt += str(rebounds) + ', '
+    update_stmt += 'turnovers = '
+    update_stmt += str(turnovers) + ', '
+    update_stmt += 'games_played = '
+    update_stmt += str(games_played)
+    update_stmt += ' where player_id = ' + str(playerID)
 
 
     # execute the query
@@ -226,7 +226,7 @@ def put_player(playerID):
     return the_response
 
 # Delete a player in the DB
-@players.route('/players', methods=['DELETE'])
+@players.route('/players/delete=<playerID>', methods=['DELETE'])
 def delete_player(playerID):
     # access json data from, request object.
     current_app.logger.info('Processing form data')
