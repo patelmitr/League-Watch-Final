@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "playersTests",
-    "dateExported": "2023-04-15T05:57:36.275Z",
+    "dateExported": "2023-04-15T07:00:32.449Z",
     "version": "1.1",
     "folders": [],
     "requests": [
@@ -146,20 +146,6 @@
             "tests": []
         },
         {
-            "_id": "532c1107-4474-4fe8-a8d7-9be53f3f9893",
-            "colId": "2e471a91-b17b-42f1-8733-af19135ecc45",
-            "containerId": "",
-            "name": "GET players",
-            "url": "localhost:8001/pl/players",
-            "method": "GET",
-            "sortNum": 110000,
-            "created": "2023-04-14T04:58:00.693Z",
-            "modified": "2023-04-15T05:39:21.600Z",
-            "headers": [],
-            "params": [],
-            "tests": []
-        },
-        {
             "_id": "d3a7f54d-e6c9-4b90-848b-41b32799b3d2",
             "colId": "2e471a91-b17b-42f1-8733-af19135ecc45",
             "containerId": "",
@@ -185,6 +171,58 @@
             "modified": "2023-04-15T05:49:19.916Z",
             "headers": [],
             "params": [],
+            "tests": []
+        },
+        {
+            "_id": "532c1107-4474-4fe8-a8d7-9be53f3f9893",
+            "colId": "2e471a91-b17b-42f1-8733-af19135ecc45",
+            "containerId": "",
+            "name": "GET players",
+            "url": "localhost:8001/pl/players",
+            "method": "GET",
+            "sortNum": 135000,
+            "created": "2023-04-14T04:58:00.693Z",
+            "modified": "2023-04-15T06:43:23.458Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "5fb708e0-be3a-492a-8859-ab69330157db",
+            "colId": "2e471a91-b17b-42f1-8733-af19135ecc45",
+            "containerId": "",
+            "name": "POST player_name=Mitra",
+            "url": "localhost:8001/pl/players",
+            "method": "POST",
+            "sortNum": 140000,
+            "created": "2023-04-15T06:16:31.489Z",
+            "modified": "2023-04-15T06:16:31.489Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"assists\": 343,\n    \"blocks\": 120,\n    \"first_name\": \"Mitra\",\n    \"last_name\": \"Patel\",\n    \"player_id\": 1450,\n    \"player_number\": 7,\n    \"points\": 2590,\n    \"position\": \"sf\",\n    \"rebounds\": 700,\n    \"salary\": 4065306,\n    \"steals\": 378,\n    \"team_id\": 5,\n    \"turnovers\": 45,\n    \"games_played\": 57\n  }",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "f8b556d6-ed98-4f04-ad3c-ded4245f5fd3",
+            "colId": "2e471a91-b17b-42f1-8733-af19135ecc45",
+            "containerId": "",
+            "name": "POST player_name=Parth",
+            "url": "localhost:8001/pl/players",
+            "method": "POST",
+            "sortNum": 150000,
+            "created": "2023-04-15T06:17:54.325Z",
+            "modified": "2023-04-15T06:17:54.325Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"assists\": 76,\n    \"blocks\": 1200,\n    \"first_name\": \"Parth\",\n    \"last_name\": \"Patel\",\n    \"player_id\": 1451,\n    \"player_number\": 1,\n    \"points\": 2,\n    \"position\": \"pf\",\n    \"rebounds\": 70,\n    \"salary\": 40606,\n    \"steals\": 3785,\n    \"team_id\": 6,\n    \"turnovers\": 5,\n    \"games_played\": 49\n  }",
+                "form": []
+            },
             "tests": []
         }
     ]
