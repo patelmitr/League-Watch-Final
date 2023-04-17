@@ -9,12 +9,12 @@ leagueCommissioner = Blueprint('leagueCommissioner', __name__)
 @leagueCommissioner.route('/leagueCommissioner', methods=['GET'])
 def get_leagueCommissioner():
  cursor = db.get_db().cursor()
- cursor.execute('select first_name, last_name, tenure, salary, league_commissioner_id, league_name from leagueCommissioner')
+ cursor.execute('select first_name, last_name, tenure, salary, league_commissioner_id, league_name from League_Commissioner')
  row_headers = [x[0] for x in cursor.description]
  json_data = []
  theData = cursor.fetchall()
  for row in theData:
-  json_data.append(dict(zip(row_headers, row)))
+  json_data.append(dict(zip(row_headers, row)))
  the_response = make_response(jsonify(json_data))
  the_response.status_code = 200
  the_response.mimetype = 'application/json'
@@ -24,87 +24,87 @@ def get_leagueCommissioner():
 @leagueCommissioner.route('/leagueCommissioner/<leagueCommissionerID>', methods=['GET'])
 def get_specificLeagueCommissioner(leagueCommissionerID):
  cursor = db.get_db().cursor()
- cursor.execute('select * from leagueCommissioner where leagueCommissioner_id = {0}'.format(leagueCommissionerID))
+ cursor.execute('select * from League_Commissioner where league_commissioner_id = {0}'.format(leagueCommissionerID))
  row_headers = [x[0] for x in cursor.description]
  json_data = []
  theData = cursor.fetchall()
  for row in theData:
-  json_data.append(dict(zip(row_headers, row)))
+  json_data.append(dict(zip(row_headers, row)))
  the_response = make_response(jsonify(json_data))
  the_response.status_code = 200
  the_response.mimetype = 'application/json'
  return the_response
 
 # Get leagueCommissioner detail for leagueCommissioner with particular first_name
-@leagueCommissioner.route('/leagueCommissioner/<first_name>', methods=['GET'])
+@leagueCommissioner.route('/leagueCommissioner/firstname=<first_name>', methods=['GET'])
 def get_firstNameCommissioner(first_name):
  cursor = db.get_db().cursor()
- cursor.execute('select * from leagueCommissioner where first_name = {0}'.format(first_name))
+ cursor.execute('select * from League_Commissioner where first_name = {0}'.format(first_name))
  row_headers = [x[0] for x in cursor.description]
  json_data = []
  theData = cursor.fetchall()
  for row in theData:
-  json_data.append(dict(zip(row_headers, row)))
+  json_data.append(dict(zip(row_headers, row)))
  the_response = make_response(jsonify(json_data))
  the_response.status_code = 200
  the_response.mimetype = 'application/json'
  return the_response
 
 # Get leagueCommissioner detail for leagueCommissioner with particular last_name
-@leagueCommissioner.route('/leagueCommissioner/<last_name>', methods=['GET'])
-def get_customer(last_name):
+@leagueCommissioner.route('/leagueCommissioner/lastname=<last_name>', methods=['GET'])
+def get_lastnameCommissioner(last_name):
  cursor = db.get_db().cursor()
- cursor.execute('select * from leagueCommissioner where last_name = {0}'.format(last_name))
+ cursor.execute('select * from League_Commissioner where last_name = {0}'.format(last_name))
  row_headers = [x[0] for x in cursor.description]
  json_data = []
  theData = cursor.fetchall()
  for row in theData:
-  json_data.append(dict(zip(row_headers, row)))
+  json_data.append(dict(zip(row_headers, row)))
  the_response = make_response(jsonify(json_data))
  the_response.status_code = 200
  the_response.mimetype = 'application/json'
  return the_response
 
 # Get leagueCommissioner detail for leagueCommissioner with particular tenure
-@leagueCommissioner.route('/leagueCommissioner/<tenure>', methods=['GET'])
-def get_customer(tenure):
+@leagueCommissioner.route('/leagueCommissioner/tenure=<tenure>', methods=['GET'])
+def get_tenure(tenure):
  cursor = db.get_db().cursor()
- cursor.execute('select * from leagueCommissioner where tenure = {0}'.format(tenure))
+ cursor.execute('select * from League_Commissioner where tenure = {0}'.format(tenure))
  row_headers = [x[0] for x in cursor.description]
  json_data = []
  theData = cursor.fetchall()
  for row in theData:
-  json_data.append(dict(zip(row_headers, row)))
+  json_data.append(dict(zip(row_headers, row)))
  the_response = make_response(jsonify(json_data))
  the_response.status_code = 200
  the_response.mimetype = 'application/json'
  return the_response
 
 # Get leagueCommissioner detail for leagueCommissioner with particular salary
-@leagueCommissioner.route('/leagueCommissioner/<salary>', methods=['GET'])
-def get_customer(salary):
+@leagueCommissioner.route('/leagueCommissioner/salary=<salary>', methods=['GET'])
+def get_salary(salary):
  cursor = db.get_db().cursor()
- cursor.execute('select * from leagueCommissioner where salary = {0}'.format(salary))
+ cursor.execute('select * from League_Commissioner where salary = {0}'.format(salary))
  row_headers = [x[0] for x in cursor.description]
  json_data = []
  theData = cursor.fetchall()
  for row in theData:
-  json_data.append(dict(zip(row_headers, row)))
+  json_data.append(dict(zip(row_headers, row)))
  the_response = make_response(jsonify(json_data))
  the_response.status_code = 200
  the_response.mimetype = 'application/json'
  return the_response
 
 # Get leagueCommissioner detail for leagueCommissioner with particular league_name
-@leagueCommissioner.route('/leagueCommissioner/<league_name>', methods=['GET'])
-def get_customer(league_name):
+@leagueCommissioner.route('/leagueCommissioner/leaguename=<league_name>', methods=['GET'])
+def get_leaguename(league_name):
  cursor = db.get_db().cursor()
- cursor.execute('select * from leagueCommissioner where league_name = {0}'.format(league_name))
+ cursor.execute('select * from League_Commissioner where league_name = {0}'.format(league_name))
  row_headers = [x[0] for x in cursor.description]
  json_data = []
  theData = cursor.fetchall()
  for row in theData:
-  json_data.append(dict(zip(row_headers, row)))
+  json_data.append(dict(zip(row_headers, row)))
  the_response = make_response(jsonify(json_data))
  the_response.status_code = 200
  the_response.mimetype = 'application/json'
@@ -112,7 +112,7 @@ def get_customer(league_name):
 
 #POST a leagueCommissioner in the DB
 @leagueCommissioner.route('/leagueCommissioner', methods=['POST'])
-def add_new_product ():
+def post_leagueCommissioner ():
  # access json data from, request object.
  current_app.logger.info('Processing form data')
  req_data = request.get_json()
@@ -126,7 +126,7 @@ def add_new_product ():
  league_name = req_data['league_name']
 
  # construct the insert statement
- insert_stmt = 'INSERT INTO leagueCommissioner (first_name, last_name, tenure, salary, leagueCommissioner_id, league_name) VALUES ("'
+ insert_stmt = 'INSERT INTO League_Commissioner (first_name, last_name, tenure, salary, leagueCommissioner_id, league_name) VALUES ("'
  insert_stmt += first_name + '", "' 
  insert_stmt += last_name + '", "'
  insert_stmt += str(tenure) + '", "'
@@ -145,14 +145,14 @@ def add_new_product ():
 #TODO
 # Put a leagueCommissioner in the DB
 @leagueCommissioner.route('/leagueCommissioner', methods=['PUT'])
-def get_customer(leagueCommissionerID):
+def put_leagueCommissioner(leagueCommissionerID):
  cursor = db.get_db().cursor()
- cursor.execute('insert first_name, last_name, salary, team_id, leagueCommissioner_id, leagueCommissioner_number, position, points, assists, steals, blocks, rebounds, turnovers, games_played from leagueCommissioner')
+ cursor.execute('insert first_name, last_name, salary, team_id, leagueCommissioner_id, leagueCommissioner_number, position, points, assists, steals, blocks, rebounds, turnovers, games_played from League_Commissioner')
  row_headers = [x[0] for x in cursor.description]
  json_data = []
  theData = cursor.fetchall()
  for row in theData:
-  json_data.append(dict(zip(row_headers, row)))
+  json_data.append(dict(zip(row_headers, row)))
  the_response = make_response(jsonify(json_data))
  the_response.status_code = 200
  the_response.mimetype = 'application/json'
