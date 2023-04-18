@@ -159,7 +159,6 @@ def add_new_product ():
     db.get_db().commit()
     return 'Success!'
 
-#TODO
 # Put a player in the DB
 @players.route('/players/put=<playerID>', methods=['PUT'])
 def put_player(playerID):

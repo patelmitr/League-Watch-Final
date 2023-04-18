@@ -14,7 +14,7 @@ def get_leagueCommissioner():
  json_data = []
  theData = cursor.fetchall()
  for row in theData:
-json_data.append(dict(zip(row_headers, row)))
+   json_data.append(dict(zip(row_headers, row)))
  the_response = make_response(jsonify(json_data))
  the_response.status_code = 200
  the_response.mimetype = 'application/json'
@@ -29,7 +29,7 @@ def get_specificLeagueCommissioner(leagueCommissionerID):
  json_data = []
  theData = cursor.fetchall()
  for row in theData:
-json_data.append(dict(zip(row_headers, row)))
+   json_data.append(dict(zip(row_headers, row)))
  the_response = make_response(jsonify(json_data))
  the_response.status_code = 200
  the_response.mimetype = 'application/json'
@@ -44,7 +44,7 @@ def get_firstNameCommissioner(first_name):
  json_data = []
  theData = cursor.fetchall()
  for row in theData:
-json_data.append(dict(zip(row_headers, row)))
+   json_data.append(dict(zip(row_headers, row)))
  the_response = make_response(jsonify(json_data))
  the_response.status_code = 200
  the_response.mimetype = 'application/json'
@@ -59,7 +59,7 @@ def get_lastnameCommissioner(last_name):
  json_data = []
  theData = cursor.fetchall()
  for row in theData:
-json_data.append(dict(zip(row_headers, row)))
+   json_data.append(dict(zip(row_headers, row)))
  the_response = make_response(jsonify(json_data))
  the_response.status_code = 200
  the_response.mimetype = 'application/json'
@@ -104,7 +104,7 @@ def get_leaguename(league_name):
  json_data = []
  theData = cursor.fetchall()
  for row in theData:
-json_data.append(dict(zip(row_headers, row)))
+   json_data.append(dict(zip(row_headers, row)))
  the_response = make_response(jsonify(json_data))
  the_response.status_code = 200
  the_response.mimetype = 'application/json'
@@ -145,51 +145,51 @@ def post_leagueCommissioner ():
 # Put a leagueCommissionerID in the DB
 @leagueCommissioner.route('/leagueCommissioner/put=<leagueCommissionerID>', methods=['PUT'])
 def put_player(leagueCommissionerID):
-# access json data from, request object.
-current_app.logger.info('Processing form data')
-req_data = request.get_json()
-current_app.logger.info(req_data)
+   # access json data from, request object.
+   current_app.logger.info('Processing form data')
+   req_data = request.get_json()
+   current_app.logger.info(req_data)
 
-first_name = req_data ['first_name']
-last_name = req_data['last_name']
-tenure = req_data['tenure']
-salary = req_data['salary']
-league_commissioner_id = req_data ['league_commissioner_id']
-league_name = req_data['league_name']
+   first_name = req_data ['first_name']
+   last_name = req_data['last_name']
+   tenure = req_data['tenure']
+   salary = req_data['salary']
+   league_commissioner_id = req_data ['league_commissioner_id']
+   league_name = req_data['league_name']
 
-# construct the update statement
-update_stmt = 'update League_Commissioner set first_name = \''
-update_stmt += first_name + '\', '
-update_stmt += 'last_name = \''
-update_stmt += last_name + '\', '
-update_stmt += 'tenure = '
-update_stmt += str(tenure) + ', '
-update_stmt += 'salary = '
-update_stmt += str(salary) + ', '
-update_stmt += 'league_commissioner_id = '
-update_stmt += str(league_commissioner_id) + ', '
-update_stmt += 'league_name = \''
-update_stmt += league_name + '\''
-update_stmt += ' where league_commissioner_id = ' + str(league_commissioner_id)
+   # construct the update statement
+   update_stmt = 'update League_Commissioner set first_name = \''
+   update_stmt += first_name + '\', '
+   update_stmt += 'last_name = \''
+   update_stmt += last_name + '\', '
+   update_stmt += 'tenure = '
+   update_stmt += str(tenure) + ', '
+   update_stmt += 'salary = '
+   update_stmt += str(salary) + ', '
+   update_stmt += 'league_commissioner_id = '
+   update_stmt += str(league_commissioner_id) + ', '
+   update_stmt += 'league_name = \''
+   update_stmt += league_name + '\''
+   update_stmt += ' where league_commissioner_id = ' + str(league_commissioner_id)
 
-# execute the query
-cursor = db.get_db().cursor()
-cursor.execute(update_stmt)
+   # execute the query
+   cursor = db.get_db().cursor()
+   cursor.execute(update_stmt)
 
-return "Success"
+   return "Success"
 
 # Delete a player in the DB
 @leagueCommissioner.route('/leagueCommissioner/delete=<leagueCommissionerID>', methods=['DELETE'])
 def delete_player(leagueCommissionerID):
-# access json data from, request object.
-current_app.logger.info('Processing form data')
+   # access json data from, request object.
+   current_app.logger.info('Processing form data')
 
-# construct the delete statement
-delete_stmt = 'delete from League_Commissioner where league_commissioner_id = \''
-delete_stmt += leagueCommissionerID + '\';'
+   # construct the delete statement
+   delete_stmt = 'delete from League_Commissioner where league_commissioner_id = \''
+   delete_stmt += leagueCommissionerID + '\';'
 
-# execute the query
-cursor = db.get_db().cursor()
-cursor.execute(delete_stmt)
+   # execute the query
+   cursor = db.get_db().cursor()
+   cursor.execute(delete_stmt)
 
-return "Success"
+   return "Success"
