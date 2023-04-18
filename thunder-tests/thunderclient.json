@@ -40,5 +40,19 @@
     "headers": [],
     "params": [],
     "tests": []
+  },
+  {
+    "_id": "418ded28-e964-43c2-bd5f-206a7eac6bb7",
+    "colId": "95db4714-d145-42bc-8548-3f95b9ea1b19",
+    "containerId": "",
+    "name": "GET players",
+    "url": "localhost:8001/pl/players",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2023-04-18T23:47:49.358Z",
+    "modified": "2023-04-18T23:47:52.392Z",
+    "headers": [],
+    "params": [],
+    "tests": []
   }
 ]
