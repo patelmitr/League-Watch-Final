@@ -215,38 +215,21 @@ def put_player(playerID):
     # execute the query
     cursor = db.get_db().cursor()
     cursor.execute(update_stmt)
-    row_headers = [x[0] for x in cursor.description]
-    json_data = []
-    theData = cursor.fetchall()
-    for row in theData:
-        json_data.append(dict(zip(row_headers, row)))
-    the_response = make_response(jsonify(json_data))
-    the_response.status_code = 200
-    the_response.mimetype = 'application/json'
-    return the_response
+    
+    return "Success"
 
 # Delete a player in the DB
 @players.route('/players/delete=<playerID>', methods=['DELETE'])
 def delete_player(playerID):
     # access json data from, request object.
     current_app.logger.info('Processing form data')
-    req_data = request.get_json()
-    current_app.logger.info(req_data)
 
     # construct the delete statement
     delete_stmt = 'delete from Player where player_id = \''
     delete_stmt += playerID + '\';'
 
-
     # execute the query
     cursor = db.get_db().cursor()
     cursor.execute(delete_stmt)
-    row_headers = [x[0] for x in cursor.description]
-    json_data = []
-    theData = cursor.fetchall()
-    for row in theData:
-        json_data.append(dict(zip(row_headers, row)))
-    the_response = make_response(jsonify(json_data))
-    the_response.status_code = 200
-    the_response.mimetype = 'application/json'
-    return the_response
+
+    return "Success"
