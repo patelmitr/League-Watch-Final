@@ -31,15 +31,11 @@ def create_app():
 
     # Import the various routes
     from src.views import views
-    from src.customers.customers import customers
-    from src.products.products  import products
     from src.players.players import players
     from src.leagueCommissioner.leagueCommissioner import leagueCommissioner
 
     # Register the routes that we just imported so they can be properly handled
     app.register_blueprint(views,       url_prefix='/v')
-    app.register_blueprint(customers,   url_prefix='/c')
-    app.register_blueprint(products,    url_prefix='/p')
     app.register_blueprint(players,     url_prefix='/pl')
     app.register_blueprint(leagueCommissioner,     url_prefix='/l')
 

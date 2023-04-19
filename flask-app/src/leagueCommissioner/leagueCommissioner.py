@@ -144,7 +144,7 @@ def post_leagueCommissioner ():
 
 # Put a leagueCommissionerID in the DB
 @leagueCommissioner.route('/leagueCommissioner/put=<leagueCommissionerID>', methods=['PUT'])
-def put_player(leagueCommissionerID):
+def put_leagueCommissioner(league_commissioner_id):
    # access json data from, request object.
    current_app.logger.info('Processing form data')
    req_data = request.get_json()
@@ -180,7 +180,7 @@ def put_player(leagueCommissionerID):
 
 # Delete a player in the DB
 @leagueCommissioner.route('/leagueCommissioner/delete=<leagueCommissionerID>', methods=['DELETE'])
-def delete_player(leagueCommissionerID):
+def delete_leagueCommissioner(leagueCommissionerID):
    # access json data from, request object.
    current_app.logger.info('Processing form data')
 

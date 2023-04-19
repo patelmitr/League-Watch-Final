@@ -36,6 +36,21 @@ def get_specificPlayer(playerID):
     the_response.mimetype = 'application/json'
     return the_response
 
+# Get player detail for player with particular playerID
+@players.route('/players/getAllplayerID', methods=['GET'])
+def get_allPlayerID():
+    cursor = db.get_db().cursor()
+    cursor.execute('select player_id from Player')
+    row_headers = [x[0] for x in cursor.description]
+    json_data = []
+    theData = cursor.fetchall()
+    for row in theData:
+        json_data.append(dict(zip(row_headers, row)))
+    the_response = make_response(jsonify(json_data))
+    the_response.status_code = 200
+    the_response.mimetype = 'application/json'
+    return the_response
+
 # Get player detail for players with particular number of points
 @players.route('/players/points=<points>', methods=['GET'])
 def get_points(points):
@@ -113,7 +128,7 @@ def get_rebounds(rebounds):
 
 #POST a player in the DB
 @players.route('/players', methods=['POST'])
-def add_new_product ():
+def add_new_product():
     # access json data from, request object.
     current_app.logger.info('Processing form data')
     req_data = request.get_json()
@@ -209,7 +224,6 @@ def put_player(playerID):
     update_stmt += 'games_played = '
     update_stmt += str(games_played)
     update_stmt += ' where player_id = ' + str(playerID)
-
 
     # execute the query
     cursor = db.get_db().cursor()
