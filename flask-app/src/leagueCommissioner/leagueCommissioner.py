@@ -43,7 +43,7 @@ def get_specificLeagueCommissioner(leagueCommissionerID):
 @leagueCommissioner.route('/leagueCommissioner/firstname=<first_name>', methods=['GET'])
 def get_firstNameCommissioner(first_name):
  cursor = db.get_db().cursor()
- cursor.execute('select * from League_Commissioner where first_name = {0}'.format(first_name))
+ cursor.execute('select * from League_Commissioner where first_name = \'{0}\''.format(first_name))
  row_headers = [x[0] for x in cursor.description]
  json_data = []
  theData = cursor.fetchall()
@@ -60,7 +60,7 @@ def get_firstNameCommissioner(first_name):
 @leagueCommissioner.route('/leagueCommissioner/lastname=<last_name>', methods=['GET'])
 def get_lastnameCommissioner(last_name):
  cursor = db.get_db().cursor()
- cursor.execute('select * from League_Commissioner where last_name = {0}'.format(last_name))
+ cursor.execute('select * from League_Commissioner where last_name = \'{0}\''.format(last_name))
  row_headers = [x[0] for x in cursor.description]
  json_data = []
  theData = cursor.fetchall()
@@ -111,7 +111,7 @@ def get_salary(salary):
 @leagueCommissioner.route('/leagueCommissioner/leaguename=<league_name>', methods=['GET'])
 def get_leaguename(league_name):
  cursor = db.get_db().cursor()
- cursor.execute('select * from League_Commissioner where league_name = {0}'.format(league_name))
+ cursor.execute('select * from League_Commissioner where league_name = \'{0}\''.format(league_name))
  row_headers = [x[0] for x in cursor.description]
  json_data = []
  theData = cursor.fetchall()
