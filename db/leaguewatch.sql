@@ -113,7 +113,12 @@ CREATE TABLE Draft_Players (
 # VALUES
 # ('National Basketball Association', 130000000);
 INSERT INTO League(league_name,salary_cap) VALUES
- ('National Basketball Association','$133050199.85');
+ ('National Basketball Association',133050199),
+ ('National Football League',133050199),
+ ('National Hockey League',133050199),
+ ('Major League Soccer',133050199),
+ ('American Ping Pong Association',133050199),
+ ('Major League Baseball',133050199);
 # select * from League;
 
 # Insert statements for league commissioner
@@ -121,7 +126,10 @@ INSERT INTO League(league_name,salary_cap) VALUES
 # values
 # ('Adam', 'Silver', 10, 50000000, 1, 'National Basketball Association');
 INSERT INTO League_Commissioner(first_name,last_name,tenure,salary,league_commissioner_id,league_name) VALUES
- ('Carrol','Itscowicz',10,'$10000000.00',1,'National Basketball Association');
+ ('Carrol','Itscowicz',10,10000000.00,1,'National Basketball Association'),
+ ('Mitra','James',15,9000000,1,'Major League Soccer'),
+ ('Ryan','Reynolds',12,16000000,1,'American Ping Pong Association'),
+ ('Kobe','Bryant',3,5000000,1,'Major League Baseball');
 # select * from League_Commissioner;
 
 # Insert statements for team

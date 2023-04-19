@@ -33,6 +33,8 @@ def get_specificPlayer(playerID):
         json_data.append(dict(zip(row_headers, row)))
     the_response = make_response(jsonify(json_data))
     the_response.status_code = 200
+    if (len(theData) == 0):
+        the_response.status_code = 404
     the_response.mimetype = 'application/json'
     return the_response
 
@@ -49,6 +51,8 @@ def get_allPlayerID():
         # json_data.append(dict(zip("value", row)))
     the_response = make_response(jsonify(json_data))
     the_response.status_code = 200
+    if (len(theData) == 0):
+        the_response.status_code = 404
     the_response.mimetype = 'application/json'
     return the_response
 
@@ -64,6 +68,8 @@ def get_points(points):
         json_data.append(dict(zip(row_headers, row)))
     the_response = make_response(jsonify(json_data))
     the_response.status_code = 200
+    if (len(theData) == 0):
+        the_response.status_code = 404
     the_response.mimetype = 'application/json'
     return the_response
 
@@ -79,6 +85,8 @@ def get_assists(assists):
         json_data.append(dict(zip(row_headers, row)))
     the_response = make_response(jsonify(json_data))
     the_response.status_code = 200
+    if (len(theData) == 0):
+        the_response.status_code = 404
     the_response.mimetype = 'application/json'
     return the_response
 
@@ -94,6 +102,8 @@ def get_steals(steals):
         json_data.append(dict(zip(row_headers, row)))
     the_response = make_response(jsonify(json_data))
     the_response.status_code = 200
+    if (len(theData) == 0):
+        the_response.status_code = 404
     the_response.mimetype = 'application/json'
     return the_response
 
@@ -109,6 +119,8 @@ def get_blocks(blocks):
         json_data.append(dict(zip(row_headers, row)))
     the_response = make_response(jsonify(json_data))
     the_response.status_code = 200
+    if (len(theData) == 0):
+        the_response.status_code = 404
     the_response.mimetype = 'application/json'
     return the_response
 
@@ -124,6 +136,8 @@ def get_rebounds(rebounds):
         json_data.append(dict(zip(row_headers, row)))
     the_response = make_response(jsonify(json_data))
     the_response.status_code = 200
+    if (len(theData) == 0):
+        the_response.status_code = 404
     the_response.mimetype = 'application/json'
     return the_response
 
