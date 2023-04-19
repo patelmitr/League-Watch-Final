@@ -126,13 +126,13 @@ def post_leagueCommissioner ():
  league_name = req_data['league_name']
 
  # construct the insert statement
- insert_stmt = 'INSERT INTO League_Commissioner (first_name, last_name, tenure, salary, league_commissioner_id, league_name) VALUES ("'
- insert_stmt += first_name + '", "' 
- insert_stmt += last_name + '", "'
+ insert_stmt = 'INSERT INTO League_Commissioner (first_name, last_name, tenure, salary, league_commissioner_id, league_name) VALUES (\"'
+ insert_stmt += first_name + '\", \"' 
+ insert_stmt += last_name + '\", "'
  insert_stmt += str(tenure) + '", "'
  insert_stmt += str(salary) + '", "'
- insert_stmt += str(league_commissioner_id) + '", "'
- insert_stmt += league_name + ')'
+ insert_stmt += str(league_commissioner_id) + '", \"'
+ insert_stmt += league_name + '\")'
 
  current_app.logger.info(insert_stmt)
 
