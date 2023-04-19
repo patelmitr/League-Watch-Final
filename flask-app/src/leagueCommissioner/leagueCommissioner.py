@@ -118,20 +118,20 @@ def post_leagueCommissioner ():
  req_data = request.get_json()
  current_app.logger.info(req_data)
 
- first_name = req_data ['first _name']
+ first_name = req_data ['first_name']
  last_name = req_data['last_name']
  tenure = req_data['tenure']
  salary = req_data['salary']
- leagueCommissioner_id = req_data['leagueCommissioner_id']
+ league_commissioner_id = req_data['league_commissioner_id']
  league_name = req_data['league_name']
 
  # construct the insert statement
- insert_stmt = 'INSERT INTO League_Commissioner (first_name, last_name, tenure, salary, leagueCommissioner_id, league_name) VALUES ("'
+ insert_stmt = 'INSERT INTO League_Commissioner (first_name, last_name, tenure, salary, league_commissioner_id, league_name) VALUES ("'
  insert_stmt += first_name + '", "' 
  insert_stmt += last_name + '", "'
  insert_stmt += str(tenure) + '", "'
  insert_stmt += str(salary) + '", "'
- insert_stmt += str(leagueCommissioner_id) + '", "'
+ insert_stmt += str(league_commissioner_id) + '", "'
  insert_stmt += league_name + ')'
 
  current_app.logger.info(insert_stmt)
