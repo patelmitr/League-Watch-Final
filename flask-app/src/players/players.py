@@ -40,12 +40,13 @@ def get_specificPlayer(playerID):
 @players.route('/players/getAllplayerID', methods=['GET'])
 def get_allPlayerID():
     cursor = db.get_db().cursor()
-    cursor.execute('select player_id from Player')
+    cursor.execute('select player_id as label, player_id as value from Player')
     row_headers = [x[0] for x in cursor.description]
     json_data = []
     theData = cursor.fetchall()
     for row in theData:
         json_data.append(dict(zip(row_headers, row)))
+        # json_data.append(dict(zip("value", row)))
     the_response = make_response(jsonify(json_data))
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
