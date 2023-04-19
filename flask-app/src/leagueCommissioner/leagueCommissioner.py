@@ -17,6 +17,8 @@ def get_leagueCommissioner():
    json_data.append(dict(zip(row_headers, row)))
  the_response = make_response(jsonify(json_data))
  the_response.status_code = 200
+ if (len(theData) == 0):
+    the_response.status_code = 404
  the_response.mimetype = 'application/json'
  return the_response
 
@@ -32,6 +34,8 @@ def get_specificLeagueCommissioner(leagueCommissionerID):
    json_data.append(dict(zip(row_headers, row)))
  the_response = make_response(jsonify(json_data))
  the_response.status_code = 200
+ if (len(theData) == 0):
+    the_response.status_code = 404
  the_response.mimetype = 'application/json'
  return the_response
 
@@ -47,6 +51,8 @@ def get_firstNameCommissioner(first_name):
    json_data.append(dict(zip(row_headers, row)))
  the_response = make_response(jsonify(json_data))
  the_response.status_code = 200
+ if (len(theData) == 0):
+    the_response.status_code = 404
  the_response.mimetype = 'application/json'
  return the_response
 
@@ -62,6 +68,8 @@ def get_lastnameCommissioner(last_name):
    json_data.append(dict(zip(row_headers, row)))
  the_response = make_response(jsonify(json_data))
  the_response.status_code = 200
+ if (len(theData) == 0):
+    the_response.status_code = 404
  the_response.mimetype = 'application/json'
  return the_response
 
@@ -77,6 +85,8 @@ def get_tenure(tenure):
     json_data.append(dict(zip(row_headers, row)))
  the_response = make_response(jsonify(json_data))
  the_response.status_code = 200
+ if (len(theData) == 0):
+    the_response.status_code = 404
  the_response.mimetype = 'application/json'
  return the_response
 
@@ -92,6 +102,8 @@ def get_salary(salary):
     json_data.append(dict(zip(row_headers, row)))
  the_response = make_response(jsonify(json_data))
  the_response.status_code = 200
+ if (len(theData) == 0):
+    the_response.status_code = 404
  the_response.mimetype = 'application/json'
  return the_response
 
@@ -107,6 +119,8 @@ def get_leaguename(league_name):
    json_data.append(dict(zip(row_headers, row)))
  the_response = make_response(jsonify(json_data))
  the_response.status_code = 200
+ if (len(theData) == 0):
+    the_response.status_code = 404
  the_response.mimetype = 'application/json'
  return the_response
 
