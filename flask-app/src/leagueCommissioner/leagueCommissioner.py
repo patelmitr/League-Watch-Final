@@ -137,7 +137,7 @@ def post_leagueCommissioner ():
  current_app.logger.info(insert_stmt)
 
  # execute the query
- cursor = db.get_db().curser()
+ cursor = db.get_db().cursor()
  cursor.execute(insert_stmt)
  db.get_db().commit()
  return 'Success!'
@@ -185,8 +185,8 @@ def delete_player(leagueCommissionerID):
    current_app.logger.info('Processing form data')
 
    # construct the delete statement
-   delete_stmt = 'delete from League_Commissioner where league_commissioner_id = \''
-   delete_stmt += leagueCommissionerID + '\';'
+   delete_stmt = 'delete from League_Commissioner where league_commissioner_id = '
+   delete_stmt += leagueCommissionerID
 
    # execute the query
    cursor = db.get_db().cursor()

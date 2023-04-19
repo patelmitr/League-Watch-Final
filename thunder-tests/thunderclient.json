@@ -518,7 +518,7 @@
     "method": "POST",
     "sortNum": 160000,
     "created": "2023-04-19T06:25:04.262Z",
-    "modified": "2023-04-19T06:26:16.437Z",
+    "modified": "2023-04-19T07:40:01.456Z",
     "headers": [],
     "params": [],
     "body": {
@@ -526,6 +526,91 @@
       "raw": "{\n  \"first_name\": \"Ankit\",\n  \"last_name\": \"Amonkar\",\n  \"league_commissioner_id\": 2,\n  \"league_name\": \"National Football League\",\n  \"salary\": 50000000,\n  \"tenure\": 15\n}",
       "form": []
     },
+    "tests": []
+  },
+  {
+    "_id": "b0168680-3bd4-4ae8-969d-2655a4fa2c2b",
+    "colId": "aa47fd82-8d42-4c67-ad39-cac37bee77d6",
+    "containerId": "",
+    "name": "POST league_commissioner_id = 3",
+    "url": "localhost:8001/l/leagueCommissioner",
+    "method": "POST",
+    "sortNum": 170000,
+    "created": "2023-04-19T06:28:21.984Z",
+    "modified": "2023-04-19T07:41:59.031Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"first_name\": \"Scott\",\n  \"last_name\": \"Mescudi\",\n  \"league_commissioner_id\": 3,\n  \"league_name\": \"Major League Baseball\",\n  \"salary\": 5000000,\n  \"tenure\": 2\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "6a6902a0-0d58-4441-b3ad-d2ddb7745532",
+    "colId": "aa47fd82-8d42-4c67-ad39-cac37bee77d6",
+    "containerId": "",
+    "name": "PUT league_commissioner_id = 1",
+    "url": "localhost:8001/l/leagueCommissioner/put=1",
+    "method": "PUT",
+    "sortNum": 200000,
+    "created": "2023-04-19T07:42:46.479Z",
+    "modified": "2023-04-19T07:43:25.688Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"first_name\": \"Carrol\",\n  \"last_name\": \"Itscowicz\",\n  \"league_commissioner_id\": 1,\n  \"league_name\": \"National Basketball Association\",\n  \"salary\": 10000000,\n  \"tenure\": 1\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "5a59d11e-f362-4af9-9571-920200f5ad90",
+    "colId": "aa47fd82-8d42-4c67-ad39-cac37bee77d6",
+    "containerId": "",
+    "name": "PUT league_commissioner_id = 2",
+    "url": "localhost:8001/l/leagueCommissioner/put=1",
+    "method": "PUT",
+    "sortNum": 210000,
+    "created": "2023-04-19T07:43:30.203Z",
+    "modified": "2023-04-19T07:43:58.165Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"first_name\": \"Kit Kat\",\n  \"last_name\": \"Amonkar\",\n  \"league_commissioner_id\": 2,\n  \"league_name\": \"National Basketball Association\",\n  \"salary\": 10000000,\n  \"tenure\": 6\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "a1fc1cec-28e4-44a4-85c8-0e73ea93fad2",
+    "colId": "aa47fd82-8d42-4c67-ad39-cac37bee77d6",
+    "containerId": "",
+    "name": "DELETE league_commissioner_id = 2",
+    "url": "localhost:8001/l/leagueCommissioner/delete=2",
+    "method": "DELETE",
+    "sortNum": 210000,
+    "created": "2023-04-19T07:44:24.192Z",
+    "modified": "2023-04-19T07:46:55.879Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "657ad961-9967-47b2-8c60-202e3128307d",
+    "colId": "aa47fd82-8d42-4c67-ad39-cac37bee77d6",
+    "containerId": "",
+    "name": "DELETE league_commissioner_id = 3",
+    "url": "localhost:8001/l/leagueCommissioner/delete=3",
+    "method": "DELETE",
+    "sortNum": 220000,
+    "created": "2023-04-19T07:46:16.989Z",
+    "modified": "2023-04-19T07:46:50.622Z",
+    "headers": [],
+    "params": [],
     "tests": []
   }
 ]

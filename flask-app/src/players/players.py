@@ -224,8 +224,8 @@ def delete_player(playerID):
     current_app.logger.info('Processing form data')
 
     # construct the delete statement
-    delete_stmt = 'delete from Player where player_id = \''
-    delete_stmt += playerID + '\';'
+    delete_stmt = 'delete from Player where player_id = '
+    delete_stmt += playerID 
 
     # execute the query
     cursor = db.get_db().cursor()
