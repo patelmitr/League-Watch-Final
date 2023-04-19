@@ -73,6 +73,23 @@ def get_lastnameCommissioner(last_name):
  the_response.mimetype = 'application/json'
  return the_response
 
+# Get leagueCommissioner detail for leagueCommissioner with particular league_name
+@leagueCommissioner.route('/leagueCommissioner/leaguename=<league_name>', methods=['GET'])
+def get_leaguename(league_name):
+ cursor = db.get_db().cursor()
+ cursor.execute('select * from League_Commissioner where league_name = \'{0}\''.format(league_name))
+ row_headers = [x[0] for x in cursor.description]
+ json_data = []
+ theData = cursor.fetchall()
+ for row in theData:
+   json_data.append(dict(zip(row_headers, row)))
+ the_response = make_response(jsonify(json_data))
+ the_response.status_code = 200
+ if (len(theData) == 0):
+    the_response.status_code = 404
+ the_response.mimetype = 'application/json'
+ return the_response
+
 # Get leagueCommissioner detail for leagueCommissioner with particular tenure
 @leagueCommissioner.route('/leagueCommissioner/tenure=<tenure>', methods=['GET'])
 def get_tenure(tenure):
@@ -100,23 +117,6 @@ def get_salary(salary):
  theData = cursor.fetchall()
  for row in theData:
     json_data.append(dict(zip(row_headers, row)))
- the_response = make_response(jsonify(json_data))
- the_response.status_code = 200
- if (len(theData) == 0):
-    the_response.status_code = 404
- the_response.mimetype = 'application/json'
- return the_response
-
-# Get leagueCommissioner detail for leagueCommissioner with particular league_name
-@leagueCommissioner.route('/leagueCommissioner/leaguename=<league_name>', methods=['GET'])
-def get_leaguename(league_name):
- cursor = db.get_db().cursor()
- cursor.execute('select * from League_Commissioner where league_name = \'{0}\''.format(league_name))
- row_headers = [x[0] for x in cursor.description]
- json_data = []
- theData = cursor.fetchall()
- for row in theData:
-   json_data.append(dict(zip(row_headers, row)))
  the_response = make_response(jsonify(json_data))
  the_response.status_code = 200
  if (len(theData) == 0):
