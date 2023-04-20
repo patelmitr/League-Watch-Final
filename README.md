@@ -42,6 +42,7 @@ The Appsmith has a few different functionalities that are made possible by the b
 #### DELETE
 * localhost:8001/pl/players/delete=<playerID>
 
+
 ### <ins> League Commissioner </ins>
 #### GET
 * localhost:8001/l/leagueCommissioner
