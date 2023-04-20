@@ -22,7 +22,7 @@ This repo contains a setup for spinning up 3 Docker containers:
 ## Appsmith Functionality
 The Appsmith has a few different functionalities that are made possible by the backend code and the data stored in the database. The data and backend are combined to create different routes from which can be accessed online through the browser via localhost:8080. These routes were accessed on Appsmith on four different pages, two pages for the Players persona and two for the League Commissioner persona. On these four pages are 1 POST, 1 PUT, and 1 DELETE route for each persona along with all the GET routes gathering data. The routes used on Appsmith and defined in the backend are:
 
-### Player
+### <u> Player </u>
 #### GET
 * localhost:8001/pl/players
 * localhost:8001/pl/players/<playerID>
@@ -42,7 +42,7 @@ The Appsmith has a few different functionalities that are made possible by the b
 #### DELETE
 * localhost:8001/pl/players/delete=<playerID>
 
-### League Commissioner
+### <u> League Commissioner </u>
 #### GET
 * localhost:8001/l/leagueCommissioner
 * localhost:8001/l/leagueCommissioner/leagueCommissionerID
