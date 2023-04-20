@@ -124,6 +124,23 @@ def get_salary(salary):
  the_response.mimetype = 'application/json'
  return the_response
 
+# Get all leagueCommissioner IDs
+@leagueCommissioner.route('/leagueCommissioner/getAllleagueCommissionerID', methods=['GET'])
+def get_salary(salary):
+ cursor = db.get_db().cursor()
+ cursor.execute('select league_commissioner_id as label, league_commissioner_id as value from League_Commissioner')
+ row_headers = [x[0] for x in cursor.description]
+ json_data = []
+ theData = cursor.fetchall()
+ for row in theData:
+    json_data.append(dict(zip(row_headers, row)))
+ the_response = make_response(jsonify(json_data))
+ the_response.status_code = 200
+ if (len(theData) == 0):
+    the_response.status_code = 404
+ the_response.mimetype = 'application/json'
+ return the_response
+
 #POST a leagueCommissioner in the DB
 @leagueCommissioner.route('/leagueCommissioner', methods=['POST'])
 def post_leagueCommissioner ():
