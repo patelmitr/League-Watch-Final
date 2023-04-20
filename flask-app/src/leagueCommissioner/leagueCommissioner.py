@@ -125,8 +125,8 @@ def get_salary(salary):
  return the_response
 
 # Get all leagueCommissioner IDs
-@leagueCommissioner.route('/leagueCommissioner/getAllleagueCommissionerID', methods=['GET'])
-def get_salary(salary):
+@leagueCommissioner.route('/leagueCommissioner/getAllLeagueCommissionerID', methods=['GET'])
+def get_AllLeagueCommissionerID():
  cursor = db.get_db().cursor()
  cursor.execute('select league_commissioner_id as label, league_commissioner_id as value from League_Commissioner')
  row_headers = [x[0] for x in cursor.description]
