@@ -9,7 +9,7 @@ leagueCommissioner = Blueprint('leagueCommissioner', __name__)
 @leagueCommissioner.route('/leagueCommissioner', methods=['GET'])
 def get_leagueCommissioner():
  cursor = db.get_db().cursor()
- cursor.execute('select first_name, last_name, tenure, salary, league_commissioner_id, league_name from League_Commissioner')
+ cursor.execute('select first_name, last_name, tenure, salary, league_commissioner_id, league_id from League_Commissioner')
  row_headers = [x[0] for x in cursor.description]
  json_data = []
  theData = cursor.fetchall()
@@ -73,11 +73,11 @@ def get_lastnameCommissioner(last_name):
  the_response.mimetype = 'application/json'
  return the_response
 
-# Get leagueCommissioner detail for leagueCommissioner with particular league_name
-@leagueCommissioner.route('/leagueCommissioner/leaguename=<league_name>', methods=['GET'])
-def get_leaguename(league_name):
+# Get leagueCommissioner detail for leagueCommissioner with particular league_id
+@leagueCommissioner.route('/leagueCommissioner/leagueid=<league_id>', methods=['GET'])
+def get_leaguename(league_id):
  cursor = db.get_db().cursor()
- cursor.execute('select * from League_Commissioner where league_name = \'{0}\''.format(league_name))
+ cursor.execute('select * from League_Commissioner where league_id = \'{0}\''.format(league_id))
  row_headers = [x[0] for x in cursor.description]
  json_data = []
  theData = cursor.fetchall()
@@ -137,16 +137,16 @@ def post_leagueCommissioner ():
  tenure = req_data['tenure']
  salary = req_data['salary']
  league_commissioner_id = req_data['league_commissioner_id']
- league_name = req_data['league_name']
+ league_id = req_data['league_id']
 
  # construct the insert statement
- insert_stmt = 'INSERT INTO League_Commissioner (first_name, last_name, tenure, salary, league_commissioner_id, league_name) VALUES (\"'
+ insert_stmt = 'INSERT INTO League_Commissioner (first_name, last_name, tenure, salary, league_commissioner_id, league_id) VALUES (\"'
  insert_stmt += first_name + '\", \"' 
  insert_stmt += last_name + '\", "'
  insert_stmt += str(tenure) + '", "'
  insert_stmt += str(salary) + '", "'
- insert_stmt += str(league_commissioner_id) + '", \"'
- insert_stmt += league_name + '\")'
+ insert_stmt += str(league_commissioner_id) + '", '
+ insert_stmt += str(league_id) + ')'
 
  current_app.logger.info(insert_stmt)
 
@@ -157,7 +157,7 @@ def post_leagueCommissioner ():
  return 'Success!'
 
 # Put a leagueCommissionerID in the DB
-@leagueCommissioner.route('/leagueCommissioner/put=<leagueCommissionerID>', methods=['PUT'])
+@leagueCommissioner.route('/leagueCommissioner/put=<league_commissioner_id>', methods=['PUT'])
 def put_leagueCommissioner(league_commissioner_id):
    # access json data from, request object.
    current_app.logger.info('Processing form data')
@@ -169,7 +169,7 @@ def put_leagueCommissioner(league_commissioner_id):
    tenure = req_data['tenure']
    salary = req_data['salary']
    league_commissioner_id = req_data ['league_commissioner_id']
-   league_name = req_data['league_name']
+   league_id = req_data['league_id']
 
    # construct the update statement
    update_stmt = 'update League_Commissioner set first_name = \''
@@ -182,8 +182,8 @@ def put_leagueCommissioner(league_commissioner_id):
    update_stmt += str(salary) + ', '
    update_stmt += 'league_commissioner_id = '
    update_stmt += str(league_commissioner_id) + ', '
-   update_stmt += 'league_name = \''
-   update_stmt += league_name + '\''
+   update_stmt += 'league_id = '
+   update_stmt += str(league_id)
    update_stmt += ' where league_commissioner_id = ' + str(league_commissioner_id)
 
    # execute the query

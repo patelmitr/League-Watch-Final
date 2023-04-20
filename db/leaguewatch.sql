@@ -11,7 +11,8 @@ DROP Table if Exists Team_Manager;
 DROP Table if Exists League_Commissioner;
 
 CREATE TABLE League (
-    league_name VARCHAR(100) PRIMARY KEY,
+    league_id INT PRIMARY KEY,
+    league_name VARCHAR(100),
     salary_cap INT NOT NULL
 );
 
@@ -21,9 +22,9 @@ CREATE TABLE League_Commissioner (
     tenure INT NOT NULL,
     salary INT NOT NULL,
     league_commissioner_id INT PRIMARY KEY,
-    league_name VARCHAR (100) NOT NULL,
-    CONSTRAINT leagueComissioner_league FOREIGN KEY (league_name)
-        REFERENCES League(league_name)
+    league_id INT NOT NULL,
+    CONSTRAINT leagueCommissioner_league FOREIGN KEY (league_id)
+        REFERENCES League(league_id)
         ON UPDATE CASCADE
         ON DELETE CASCADE
 );
@@ -112,24 +113,24 @@ CREATE TABLE Draft_Players (
 # INSERT INTO League(league_name, salary_cap)
 # VALUES
 # ('NBA', 130000000);
-INSERT INTO League(league_name,salary_cap) VALUES
- ('NBA',133050199),
- ('NFL',133050199),
- ('NHL',133050199),
- ('MLS',133050199),
- ('APPA',133050199),
- ('MLB',133050199);
+INSERT INTO League(league_id, league_name,salary_cap) VALUES
+ (1, 'NBA',133050199),
+ (2, 'NFL',133050199),
+ (3, 'NHL',133050199),
+ (4, 'MLS',133050199),
+ (5, 'APPA',133050199),
+ (6, 'MLB',133050199);
 # select * from League;
 
 # Insert statements for league commissioner
 # INSERT INTO League_Commissioner (first_name, last_name, tenure, salary, league_commissioner_id, league_name)
 # values
 # ('Adam', 'Silver', 10, 50000000, 1, 'NBA');
-INSERT INTO League_Commissioner(first_name,last_name,tenure,salary,league_commissioner_id,league_name) VALUES
- ('Carrol','Itscowicz',10,10000000.00,1,'NBA'),
- ('Mitra','James',15,9000000,1,'MLS'),
- ('Ryan','Reynolds',12,16000000,1,'APPA'),
- ('Kobe','Bryant',3,5000000,1,'MLB');
+INSERT INTO League_Commissioner(first_name,last_name,tenure,salary,league_commissioner_id,league_id) VALUES
+ ('Carrol','Itscowicz',10,10000000.00,1,1),
+ ('Mitra','James',15,9000000,5,4),
+ ('Ryan','Reynolds',12,16000000,6,5),
+ ('Kobe','Bryant',3,5000000,7,6);
 # select * from League_Commissioner;
 
 # Insert statements for team
