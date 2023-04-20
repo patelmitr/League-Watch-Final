@@ -25,55 +25,39 @@ The Appsmith has a few different functionalities that are made possible by the b
 ### Player
 #### GET
 * localhost:8001/pl/players
-* localhost:8001/pl/players/1
-* localhost:8001/pl/players/2
-* localhost:8001/pl/players/points=1089
-* localhost:8001/pl/players/points=1397
-* localhost:8001/pl/players/assists=100
-* localhost:8001/pl/players/assists=200
-* localhost:8001/pl/players/steals=10
-* localhost:8001/pl/players/steals=0
-* localhost:8001/pl/players/blocks=1
-* localhost:8001/pl/players/blocks=2
-* localhost:8001/pl/players/rebounds=1
-* localhost:8001/pl/players/rebounds=2
+* localhost:8001/pl/players/<playerID>
+* localhost:8001/pl/players/getAllplayerID
+* localhost:8001/pl/players/points=<points>
+* localhost:8001/pl/players/assists=<assists>
+* localhost:8001/pl/players/steals=<steals>
+* localhost:8001/pl/players/blocks=<blocks>
+* localhost:8001/pl/players/rebounds=<rebounds>
 
 #### POST
-* localhost:8001/pl/players (first text in body)
-* localhost:8001/pl/players (second text in body)
+* localhost:8001/pl/players
 
 #### PUT
-* localhost:8001/pl/players/put=1450 (third text in body)
-* localhost:8001/pl/players/put=1900 (fourth text in body)
+* localhost:8001/pl/players/put=<playerID>
 
 #### DELETE
-* localhost:8001/pl/players/delete=1450
-* localhost:8001/pl/players/delete=1900
+* localhost:8001/pl/players/delete=<playerID>
 
 ### League Commissioner
 #### GET
 * localhost:8001/l/leagueCommissioner
-* localhost:8001/l/leagueCommissioner/1
-* localhost:8001/l/leagueCommissioner/2
-* localhost:8001/l/leagueCommissioner/firstname="Carrol"
-* localhost:8001/l/leagueCommissioner/firstname="Carol"
-* localhost:8001/l/leagueCommissioner/lastname="Itscowicz"
-* localhost:8001/l/leagueCommissioner/lastname="Jones"
-* localhost:8001/l/leagueCommissioner/tenure=10
-* localhost:8001/l/leagueCommissioner/tenure=1
-* localhost:8001/l/leagueCommissioner/salary=10000000
-* localhost:8001/l/leagueCommissioner/1000
-* localhost:8001/l/leagueCommissioner/leaguename="National Basketball Association"
-* localhost:8001/l/leagueCommissioner/leaguename="NBA"
+* localhost:8001/l/leagueCommissioner/leagueCommissionerID
+* localhost:8001/l/leagueCommissioner/firstname=<first_name>
+* localhost:8001/l/leagueCommissioner/lastname=<last_name>
+* localhost:8001/l/leagueCommissioner/leagueid=<leagueid>
+* localhost:8001/l/leagueCommissioner/tenure=<tenure>
+* localhost:8001/l/leagueCommissioner/salary=<salary>
+* localhost:8001/l/leagueCommissioner/getAllLeagueCommissionerID
 
 #### POST
-* localhost:8001/l/leagueCommissioner (first text in the body)
-* localhost:8001/l/leagueCommissioner (second text in body)
+* localhost:8001/l/leagueCommissioner
 
 #### PUT
-* localhost:8001/l/leagueCommissioner/put=1 (third text in body)
-* localhost:8001/l/leagueCommissioner/put=2 (fourth text in body)
+* localhost:8001/l/leagueCommissioner/put=<leagueCommissionerID>
 
 #### DELETE
-* localhost:8001/l/leagueCommissioner/delete=2
-* localhost:8001/l/leagueCommissioner/delete=3
+* localhost:8001/l/leagueCommissioner/delete=<leagueCommissionerID>
