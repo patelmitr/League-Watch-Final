@@ -18,11 +18,11 @@
     "colId": "95db4714-d145-42bc-8548-3f95b9ea1b19",
     "containerId": "",
     "name": "GET player_id = 1",
-    "url": "localhost:8001/pl/players/1450",
+    "url": "localhost:8001/pl/players/1",
     "method": "GET",
     "sortNum": 30000,
     "created": "2023-04-19T00:12:13.783Z",
-    "modified": "2023-04-20T00:15:48.849Z",
+    "modified": "2023-04-20T02:14:35.939Z",
     "headers": [],
     "params": [],
     "tests": []

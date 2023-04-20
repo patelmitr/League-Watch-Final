@@ -243,6 +243,7 @@ def put_player(playerID):
     # execute the query
     cursor = db.get_db().cursor()
     cursor.execute(update_stmt)
+    db.get_db().commit()
     
     return "Success"
 
@@ -259,5 +260,6 @@ def delete_player(playerID):
     # execute the query
     cursor = db.get_db().cursor()
     cursor.execute(delete_stmt)
+    db.get_db().commit()
 
     return "Success"
