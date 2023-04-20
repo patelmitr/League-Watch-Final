@@ -18,3 +18,6 @@ This repo contains a setup for spinning up 3 Docker containers:
 1. This will then start our application to be accessed locally.
 1. To then access the application, go to a browser and go to "localhost:8080" and it should open up the appsmith page.
 1. From here we can use the functionality on the Appsmith website as designed in flask and the backend.
+
+## Appsmith Functionality
+The Appsmith has a few different functionalities that are made possible by the backend code and the data stored in the database. The data and backend are combined to create different routes from which can be accessed online through the browser via localhost:8080. These routes were accessed on Appsmith on four different pages, two pages for the Players persona and two for the League Commissioner persona. On these four pages are 1 POST, 1 PUT, and 1 DELETE route for each persona along with all the GET routes gathering data.
